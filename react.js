@@ -49,33 +49,45 @@ this.state = {
   count: 0
 }
 
+addOne(){
+  newCount = this.state.count + 1;
+  this.setState({count: newCount})
+}
 
 
 // 5. There are four mistakes in this code that would cause it to break our application. Find the mistakes and fix them:
 
-// import React, { Component } from 'react';
-//
-// class Recipes{
-//   constructor(props){
-//     super(props)
-//     this.state = {
-//       recipes:
-//         {name: 'Meatballs'},
-//         {name: 'Mac & Cheese'}
-//     }
-//   }
-//
-//   render() {
-//     return(
-//       let recipe = recipes.map(recipe => {
-//         return(
-//           <li key={recipe.name}>{recipe.name}</li>
-//         )
-//       })
-//       <ul>
-//         {recipe}
-//       </ul>
-//     )
-//   }
-// }
-// export default Recipes
+import React, { Component } from 'react';
+
+class Recipes{
+  constructor(props){
+    super(props)
+    this.state = {
+      recipes:
+        {name: 'Meatballs'},
+        {name: 'Mac & Cheese'}
+    }
+  }
+
+  render() {
+    // Mistake 2: receipe is out of scope. Need to deconstruct or use this.state to make recipes available
+    let { recipes } = this.state
+    let recipe = recipes.map(recipe => {
+      return(
+        <li key={recipe.name}>{recipe.name}</li>
+      )
+    })
+    return(
+      // Mistake 1: need to return JSX inside return, and have everything in one tag
+      // let recipe = recipes.map(recipe => {
+      //   return(
+      //     <li key={recipe.name}>{recipe.name}</li>
+      //   )
+      // })
+      <ul>
+        {recipe}
+      </ul>
+    )
+  }
+}
+export default Recipes
