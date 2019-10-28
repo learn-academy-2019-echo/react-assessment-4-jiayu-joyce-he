@@ -5,17 +5,17 @@
 
 // 1. Write a React component that prints "I am a component!" Be sure to include all necessary imports, exports, etc.
 
-// import React, { Component } from 'react';
-//
-// class Component1 extends Component {
-//   render(){
-//     <div>
-//       <p>"I am a component!"</p>
-//     </div>
-//   }
-// }
-//
-// export default Component1;
+import React, { Component } from 'react';
+
+class Component1 extends Component {
+  render(){
+    <div>
+      <p>"I am a component!"</p>
+    </div>
+  }
+}
+
+export default Component1;
 
 // 2. Refactor this vanilla javascript loop to a map function. The output should remain the same.
 
