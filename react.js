@@ -54,23 +54,31 @@ addOne(){
   this.setState({count: newCount})
 }
 
+incrementor = () => {
+  const { count } = this.states
+  this.setState({count: count ++ })
+}
+
 
 // 5. There are four mistakes in this code that would cause it to break our application. Find the mistakes and fix them:
 
 import React, { Component } from 'react';
 
-class Recipes{
+// Mistake 1: doesn't have extend before
+class Recipes extends Component {
   constructor(props){
     super(props)
     this.state = {
-      recipes:
+      // Mistake 2: recipe should be an array
+      recipes: [
         {name: 'Meatballs'},
         {name: 'Mac & Cheese'}
+      ]
     }
   }
 
   render() {
-    // Mistake 2: receipe is out of scope. Need to deconstruct or use this.state to make recipes available
+    // Mistake 3: receipe is out of scope. Need to deconstruct or use this.state to make recipes available
     let { recipes } = this.state
     let recipe = recipes.map(recipe => {
       return(
@@ -78,7 +86,7 @@ class Recipes{
       )
     })
     return(
-      // Mistake 1: need to return JSX inside return, and have everything in one tag
+      // Mistake 4: need to return JSX inside return, and have everything in one tag
       // let recipe = recipes.map(recipe => {
       //   return(
       //     <li key={recipe.name}>{recipe.name}</li>
